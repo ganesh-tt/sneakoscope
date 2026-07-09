@@ -44,8 +44,6 @@ never silently wired.
 
 ## Origin
 
-Built for the Tookitaki AMLS codebase baseline (FIN-12299): repo-wide audits found unsafe
-`.get`/null-heavy Scala, minimal FP/effect discipline, Py2 remnants in shipped code, SQL case
-drift, and ~22% tautological/dead tests — these skills are the standards + review loop that
-came out of it. The audits themselves stay with the ticket; this repo carries only the durable,
-repo-agnostic tooling.
+Built after a release shipped a large bug-tail despite a fully green test suite — audits traced
+it to unsafe partial functions, weak FP/effect discipline, schema drift, and tautological tests
+that could not fail. These skills are the standards + review loop that came out of it.
