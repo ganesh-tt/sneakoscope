@@ -5,7 +5,7 @@ The setup command for a backend repo. One codebase crawl feeds two artifacts:
 - **ARCHITECTURE.md** (capture): what the system IS — modules, layering, effect model, datastores, auth, version pins, invariants. Answers "what exists and what must not silently change".
 - **ENGINEERING.md** (quality bar): how work on this system is judged — precedence-ordered principles, per-language bars, scoring scheme. Answers "what good looks like here".
 
-Both live at the repo root or under `.impeccable/code/`. Every other impeccable-backend command reads them before doing any work. Init is a **capture**, not a critique: you record the system as-is, in neutral language, with citations. Improvement proposals belong to `critique`; migration plans to `evolve`.
+Both live at the repo root or under `.impeccable/code/`. Every other sneakoscope-architecture command reads them before doing any work. Init is a **capture**, not a critique: you record the system as-is, in neutral language, with citations. Improvement proposals belong to `critique`; migration plans to `evolve`.
 
 ## Step 1: Load current state
 
@@ -151,9 +151,9 @@ e.g. "Every unified_alerts write goes through AlertDao (dao/AlertDao.scala:88) �
 
 Summarize in ≤6 lines: modules captured, invariants count, notable observed state, what was written. Then recommend the 2–4 best next commands, drawn from what the crawl surfaced — not a menu dump:
 
-- **Design a feature**: `/impeccable-backend design <feature>` — now grounded in the capture.
-- **Get the system scored**: `/impeccable-backend critique` — turns the neutral "observed state" section into ranked, scored findings. Lead with this if Step 7 recorded ≥3 inconsistencies.
-- **Record the first decision**: `/impeccable-backend adr <decision>` — start the ADR log with the biggest undocumented decision the capture exposed (e.g. the dual effect model, the copy-table sync).
-- **Plan a half-done migration**: `/impeccable-backend evolve <migration>` — if Step 6 Q5 surfaced one.
+- **Design a feature**: `/sneakoscope-architecture design <feature>` — now grounded in the capture.
+- **Get the system scored**: `/sneakoscope-architecture critique` — turns the neutral "observed state" section into ranked, scored findings. Lead with this if Step 7 recorded ≥3 inconsistencies.
+- **Record the first decision**: `/sneakoscope-architecture adr <decision>` — start the ADR log with the biggest undocumented decision the capture exposed (e.g. the dual effect model, the copy-table sync).
+- **Plan a half-done migration**: `/sneakoscope-architecture evolve <migration>` — if Step 6 Q5 surfaced one.
 
 One line each on why, with the exact command to type.

@@ -18,6 +18,9 @@ You did the work (or a teammate did). Before it merges, this runs every review l
 | Anti-slop | `/ponytail-review` | over-engineering, reinvented stdlib, dead abstraction |
 | UI/UX (FE diffs only) | `impeccable` + `frontend-design` | visual hierarchy, a11y, responsive, anti-patterns, UX-copy, empty/error states |
 | Test quality (when diff touches tests OR adds logic) | `test-quality-audit` skill | tautological/hardcoded/mock-echo tests, verify-only, can-never-fail, missing behaviour coverage |
+| SQL / queries (diff touches .sql or embedded SQL) | `sneakoscope-stores` skill (if available) | SELECT *, sargability, OFFSET-depth, injection, engine-specific traps |
+| Pipelines (Spark/Flink/DAG-config diffs) | `sneakoscope-pipelines` skill (if available) | shuffle/skew/broadcast, state/watermark/checkpoint, DAG wiring, creds-in-config |
+| Scripts (.sh / CI / k8s ops diffs) | `sneakoscope-scripts` skill (if available) | strict mode, quoting, idempotency, dry-run, secret leaks, kubectl context/namespace |
 | Conventions | this skill | PR title, target branch, tests present, no secrets/debug |
 
 ## Mode detection
@@ -59,6 +62,12 @@ Sweep the diff once against `references/principles.md` (SOLID, DRY, KISS/YAGNI, 
 
 ### 4e. Repo baseline standards (when the repo carries them)
 If the repo has `.impeccable/code/ENGINEERING.md` (quality strategy), `.impeccable/code/ARCHITECTURE.md` (system capture + invariants), or `.impeccable/proposals/*-conventions.md`, read them and review the diff against THOSE as the codified team bar — e.g. flag a diff that violates a listed architecture invariant, an adopted convention, or re-introduces a pattern an audit called out. Repo baseline docs outrank this skill's generic defaults wherever they conflict.
+
+### 4f. Data & ops artifact passes (when the diff touches them)
+Route by artifact type, using each skill's doctrine if installed (skip with a note under Skipped if not):
+- `.sql` files or embedded SQL strings -> `sneakoscope-stores` (queries doctrine + the engine chapter matching the actual store).
+- Spark/Flink job code or pipeline DAG configs (JSON/YAML) -> `sneakoscope-pipelines` (incl. the creds-in-config and silent-empty-DataFrame connector-flag checks).
+- `.sh`/CI steps/kubectl/helm sequences -> `sneakoscope-scripts` (strict mode, idempotency, dry-run, secrets, context/namespace hygiene).
 
 ### 5. Convention / gate checks (this skill does these directly)
 Read the repo's `CLAUDE.md` / `CONTRIBUTING.md` if present and apply ITS conventions (title format, commit format, branch policy). Generic defaults when the repo defines none:

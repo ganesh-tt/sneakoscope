@@ -1,11 +1,11 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "impeccable-stack",
-  "description": "Impeccable for the whole stack: design register (pbakaus/impeccable) + engineering register (per-language code optimizers, test-quality audit, pr-gate review orchestrator).",
+  "name": "sneakoscope",
+  "description": "Shipshape: artifact-quality doctrine for the whole stack — architecture design, per-language code optimizers, pipelines, data stores, test honesty, and the pr-gate review orchestrator. Design register vendors pbakaus/impeccable (Apache-2.0).",
   "owner": { "name": "Ganesh Kaple", "url": "https://github.com/ganesh-tt" },
   "plugins": [
     {
-      "name": "impeccable-stack",
+      "name": "sneakoscope",
       "description": "Design + engineering quality skills: impeccable (FE/UX), scala/python/js code optimizers, test-quality-audit, pr-gate.",
       "source": "./",
       "category": "code-quality"
