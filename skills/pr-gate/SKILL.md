@@ -22,7 +22,7 @@ You did the work (or a teammate did). Before it merges, this runs every review l
 
 ## Mode detection
 
-- **No argument** → self-review the current branch against its base. Base = the branch the PR targets (`prerelease/vX.Y.Z` if it exists for this line, else `develop`). Confirm base with the user if ambiguous.
+- **No argument** → self-review the current branch against its base. Base = the branch the PR targets (the repo's release/integration branch — check `CLAUDE.md` or the default branch). Confirm base with the user if ambiguous.
 - **Argument is a PR number or GitHub URL** (`/pr-gate 10746`, `/pr-gate https://github.com/.../pull/10746`) → review that PR.
 - **Argument is a branch name** → diff that branch against its base.
 
@@ -61,14 +61,14 @@ Sweep the diff once against `references/principles.md` (SOLID, DRY, KISS/YAGNI, 
 If the repo has `.impeccable/code/ENGINEERING.md` (quality strategy), `.impeccable/code/ARCHITECTURE.md` (system capture + invariants), or `.impeccable/proposals/*-conventions.md`, read them and review the diff against THOSE as the codified team bar — e.g. flag a diff that violates a listed architecture invariant, an adopted convention, or re-introduces a pattern an audit called out. Repo baseline docs outrank this skill's generic defaults wherever they conflict.
 
 ### 5. Convention / gate checks (this skill does these directly)
-Read the repo's `CLAUDE.md` if present and apply its rules; these Tookitaki defaults always apply here:
-- **PR title** matches `^(feat|fix|chore|docs|test|refactor): \[(FIN|INSEC)-\d+\] .+` (CI-enforced — a mismatch is an auto-fail, mark BLOCKED).
-- **Commit subject** follows `[Domain][Layer][JIRA-ID] ...` (Domains: CM/NS/TM/CRS/AMLS/TDSS/AAA; Layers: FE/BE/DE/DS/DEVOPS).
+Read the repo's `CLAUDE.md` / `CONTRIBUTING.md` if present and apply ITS conventions (title format, commit format, branch policy). Generic defaults when the repo defines none:
+- **PR title** matches the repo's convention (e.g. conventional-commit prefix + ticket key). If the repo CI enforces a title format, a mismatch is BLOCKED.
+- **Commit subjects** follow the repo's documented format (check recent `git log` for the established pattern).
 - **Target branch** is a real release/`develop` branch, not another feature branch (unless the user said it's a stacked PR).
 - **Tests present** — any non-trivial logic change (branch, loop, parser, money/security path) has a matching test in the diff. Missing test on new logic = FIX-FIRST.
-- **No secrets / debug** — scan the diff for tokens, credentials, `console.log`/`println`/`print(` debug, `FONTAWESOME_TOKEN`, hardcoded hosts, committed `.env`.
+- **No secrets / debug** — scan the diff for tokens, credentials, `console.log`/`println`/`print(` debug, hardcoded hosts, committed `.env`.
 - **No commented-out code / TODO dumps** left behind.
-- **JIRA key hygiene** — commit/PR references ONLY the target ticket, not parked/other-team tickets (any FIN-key auto-links + notifies that issue).
+- **Ticket key hygiene** — commit/PR references ONLY the target ticket; issue keys in messages auto-link and notify, so stray keys spam unrelated tickets.
 
 ### 6. Synthesize — ONE verdict
 De-duplicate findings that multiple lenses reported (same file:line). Rank by severity. Then emit the report below.
