@@ -61,7 +61,7 @@ Run the `test-quality-audit` skill on the diff's test files, cross-referenced ag
 Sweep the diff once against `references/principles.md` (SOLID, DRY, KISS/YAGNI, layering, cohesion/coupling, fail-fast, encapsulation, least-astonishment, idempotency — each mapped to detectable smells). Rank per that file's rules: blocker only with a correctness consequence; should-fix for structural violations on new code; pre-existing violations → one line under Skipped.
 
 ### 4e. Repo baseline standards (when the repo carries them)
-If the repo has `.impeccable/code/ENGINEERING.md` (quality strategy), `.impeccable/code/ARCHITECTURE.md` (system capture + invariants), or `.impeccable/proposals/*-conventions.md`, read them and review the diff against THOSE as the codified team bar — e.g. flag a diff that violates a listed architecture invariant, an adopted convention, or re-introduces a pattern an audit called out. Repo baseline docs outrank this skill's generic defaults wherever they conflict.
+If the repo has `.sneakoscope/code/ENGINEERING.md` (legacy `.impeccable/code/`) (quality strategy), `.sneakoscope/code/ARCHITECTURE.md` (system capture + invariants), or `.sneakoscope/proposals/*-conventions.md`, read them and review the diff against THOSE as the codified team bar — e.g. flag a diff that violates a listed architecture invariant, an adopted convention, or re-introduces a pattern an audit called out. Repo baseline docs outrank this skill's generic defaults wherever they conflict.
 
 ### 4f. Data & ops artifact passes (when the diff touches them)
 Route by artifact type, using each skill's doctrine if installed (skip with a note under Skipped if not):

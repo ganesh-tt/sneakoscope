@@ -13,7 +13,7 @@ thinking, decisions recorded as ADRs. Design is a deliverable, not a preamble to
 ## Setup — you MUST do these steps before proceeding
 
 1. **Load the project's architecture brain.** Look for `ARCHITECTURE.md` (system capture +
-   invariants) and `ENGINEERING.md` (quality bar) at the repo root or under `.impeccable/code/`,
+   invariants) and `ENGINEERING.md` (quality bar) at the repo root or under `.sneakoscope/code/` (legacy: `.impeccable/code/`),
    and an ADR directory (`docs/adr/`, `adr/`, `docs/decisions/`). If ARCHITECTURE.md is missing
    and the user invoked `init`, `design`, or `shape` — divert into `reference/init.md` first:
    captured system context is the point of those flows. For any other scoped command, proceed
