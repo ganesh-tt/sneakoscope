@@ -79,6 +79,21 @@ OFFSET-pagination query, a tautological test, and a shell script that rm's unquo
 Shipshape is that judgment layer: wire `pr-gate` at the end of the process (and optionally as
 a `gh pr create` blocking hook — documented in `skills/pr-gate/`, opt-in, never silently wired).
 
+## Credits — no dark wizardry
+
+We stand on other people's work and say so:
+
+| What | From | License | How we use it |
+|---|---|---|---|
+| `skills/impeccable/` | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | Apache-2.0 | vendored unmodified as the frontend design register; this whole repo's dense-doctrine style is inspired by its approach |
+| `skills/scala-code-optimizer/` | [abh80/skills](https://github.com/abh80/skills) | MIT | vendored (with locally added N+1/DRY sections, marked "added locally") |
+| optimizer skill structure | [abh80/skills](https://github.com/abh80/skills) | — | `python-code-optimizer` and `js-code-optimizer` are original content modeled on scala-code-optimizer's audit workflow, output format, and citation discipline |
+| review-lens concepts | [ponytail](https://github.com/DietrichGebert) (anti-over-engineering review), Claude Code's built-in `/code-review` | — | referenced by `pr-gate` as optional lenses, not vendored |
+
+Full attribution in [NOTICE](NOTICE). If we've reused your work and missed you here, open an
+issue — we'll fix it faster than you can say "expelliarmus".
+
+
 ## Origin
 
 Built after a release shipped a large bug-tail despite a fully green test suite — audits traced

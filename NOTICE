@@ -1,3 +1,15 @@
-This repository vendors the "impeccable" skill (skills/impeccable/) from
-https://github.com/pbakaus/impeccable (Apache License 2.0, Copyright Paul Bakaus).
+Third-party content vendored in this repository:
+
+1. skills/impeccable/ — vendored unmodified from
+   https://github.com/pbakaus/impeccable
+   Copyright Paul Bakaus. Licensed under the Apache License 2.0 (see LICENSE).
+
+2. skills/scala-code-optimizer/ — vendored from
+   https://github.com/abh80/skills
+   Copyright abh80. Licensed under the MIT License.
+
+The python-code-optimizer and js-code-optimizer skills are original work whose
+structure (audit workflow, output format, citation discipline) is modeled on
+abh80's scala-code-optimizer.
+
 All other skills are original work in this repository.
