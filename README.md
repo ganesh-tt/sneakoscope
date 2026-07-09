@@ -4,7 +4,8 @@ Impeccable for the **whole stack** — two registers, one install:
 
 | Register | Skill | What it enforces |
 |---|---|---|
-| **Design** | `impeccable` | The design language for FE/UX work — vendored from [pbakaus/impeccable](https://github.com/pbakaus/impeccable) (Apache-2.0, see NOTICE) |
+| **Design (frontend)** | `impeccable` | The design language for FE/UX work — vendored from [pbakaus/impeccable](https://github.com/pbakaus/impeccable) (Apache-2.0, see NOTICE) |
+| **Design (backend)** | `impeccable-backend` | The architecture design language — its true backend counterpart. Sub-commands: `init` (generate the repo's ARCHITECTURE.md + ENGINEERING.md), `design` (options → trade-off table → commit → mandatory failure design → ADR extraction), `adr` (MADR-lite lifecycle), `critique` (8 scored dimensions), `model`, `api`, `harden` (five questions per hop), `evolve` (no-big-bang migration doctrine). 8 doctrine chapters, ~1,500 lines |
 | **Engineering** | `scala-code-optimizer` | Scala idioms, FP hygiene (Option/Try/Either, no `.get`/`null`), effect discipline, ScalikeJDBC pitfalls, Spark safety, perf, N+1, DRY/pattern-fit |
 | | `python-code-optimizer` | PEP idioms, FP hygiene, typing, footguns (mutable defaults, bare except), perf, N+1, DRY |
 | | `js-code-optimizer` | Modern ES/TS idioms, FP + async/Promise hygiene, TS type-safety, perf, N+1, DRY |
